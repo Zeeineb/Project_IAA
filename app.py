@@ -41,7 +41,7 @@ def index():
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
 
-            prediction, accuracy = process_image(file_path)
+            prediction= process_image(file_path)
 
             return render_template('results.html', prediction=prediction, filename=filename)
 
