@@ -52,11 +52,9 @@ def evaluate_model(model, test_generator):
     true_classes = test_generator.classes
 
     conf_matrix = confusion_matrix(true_classes, predicted_classes)
-    class_report = classification_report(true_classes, predicted_classes)
     accuracy = accuracy_score(true_classes, predicted_classes)
 
     print("Matrice de Confusion:\n", conf_matrix)
-    print("\nRapport de Classification:\n", class_report)
     print("\nPrécision Globale:", accuracy)
 
     plt.figure(figsize=(8, 6))
@@ -64,9 +62,10 @@ def evaluate_model(model, test_generator):
     plt.xlabel('Prédictions')
     plt.ylabel('Vraies Étiquettes')
     plt.title('Matrice de Confusion')
+    # Display overall accuracy below the confusion matrix
+    plt.text(0.5, -0.1, f'Précision Globale: {accuracy:.4f}', fontsize=12, ha='center', transform=plt.gca().transAxes)
     plt.show()
 
-    print("Rapport de Classification:\n", class_report)
     print("\nPrécision Globale:", accuracy)
 
     return accuracy
@@ -77,7 +76,7 @@ def save_model(model, path):
 def main():
     base_dir = 'C:/Users/ASUS/Desktop/Projet IAA - Last version/Dataset'
     img_size = (256, 256)
-    epochs = 4
+    epochs = 10
 
     # Build the model
     model = build_model()
