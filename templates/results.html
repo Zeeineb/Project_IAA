@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1 class="app-title">Welcome to CNN Chest Detection</h1>
+    <div class="container">
+        <h2>Prediction Results</h2>
+        <!-- Display the uploaded image -->
+        <div id="results-container">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded X-ray">
+
+            <!-- Display the prediction-->
+            <p class="bold-green-text">Prediction: <span class="prediction">{{ prediction }}</span></p>
+        </div>
+        
+        <!-- Display the prediction and accuracy 
+        <p>Prediction: {{ prediction }}</p>
+        <p>Accuracy: {{ accuracy * 100 }}%</p>  -->
+    </div>
+</body>
+</html>
